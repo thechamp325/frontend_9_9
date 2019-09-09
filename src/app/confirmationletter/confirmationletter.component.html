@@ -1,0 +1,66 @@
+<mat-sidenav-container>
+    <mat-sidenav mode="over" [(opened)]="opened"><mat-icon>home</mat-icon>PICT MIS SYSTEM
+        <mat-icon mat-button (click)="opened=!opened" aria-hidden="false" aria-label="Example home icon">close</mat-icon>
+        <mat-list role="list">
+            <mat-list-item role="listitem"><button color="primary" routerLink="/staff-form" mat-raised-button>Emplyee Form</button></mat-list-item>
+            <mat-list-item role="listitem"><button color="primary" routerLink="/report" mat-raised-button>Report</button></mat-list-item>
+            <mat-list-item role="listitem"><button color="primary" routerLink="/salary" mat-raised-button>salary</button></mat-list-item>
+            <mat-list-item role="listitem"><button color="primary" routerLink="/experience" mat-raised-button>Experience</button></mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+       
+        
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="navbar-nav">
+        <button color="accent" mat-button (click)="opened=!opened"><mat-icon>menu</mat-icon></button>
+        <a class="nav-item nav-link" routerLink="/staff-home">Home</a>
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    </div>
+  </nav>
+  <div class="jumbotron">
+<mat-card>
+    <h3 class="h3">Date:4/4/2019</h3>
+    <br>
+    <br>
+    <section >
+        <h4>
+        To,<br>
+        <br>
+                <input matInput value="Name of Employee" disabled><br>
+        <br>
+               <input matInput value="Address" disabled>
+        </h4>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>
+        <h2>LETTER OF CONFIRMATION OF SERVICES</h2>
+        <br>
+        <br>
+        <p>This is to inform you that Management is pleased to confirm your services as  <mat-form-field class="example-full-width">
+                <input matInput value="Designation" disabled></mat-form-field> in <mat-form-field class="example-full-width">
+                        <input matInput value="Department" disabled></mat-form-field> Form <mat-form-field class="example-full-width">
+                                <input matInput value="Confirmation date" disabled></mat-form-field> . Your appointment date is <mat-form-field class="example-full-width">
+                                        <input matInput value="Joining date" disabled></mat-form-field>  .</p>    
+    </div>
+         
+            
+    <br>
+    <br>
+    <br>
+    <br>
+    <div align="right">
+        <label><b>Principal</b></label>
+    </div>
+</mat-card>
+<!--
+<div align="right">
+    <button mat-raised-button>Download as PDF</button>
+</div>
+-->
+</div>
+</mat-sidenav-content>
+</mat-sidenav-container>

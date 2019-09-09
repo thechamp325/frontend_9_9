@@ -1,0 +1,1118 @@
+<!--<mat-toolbar color="primary" class="navbar">
+    <div>P.I.C.T - MIS SYSTEM </div>
+    <div>
+    <span>Home</span>
+    <span>logout</span>
+      </div>
+  </mat-toolbar> 
+-->
+ <!-- 
+  <mat-sidenav-container>
+    <mat-sidenav mode="over" [(opened)]="opened">Sidenav
+        <button color="accent" mat-button (click)="opened=!opened">close</button>
+        <div><button color="primary" mat-raised-button>New emplyee</button></div>
+        <div><button color="primary" mat-raised-button>View specific Employee</button></div>
+        <div><button color="primary" mat-raised-button>Report</button></div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <button color="accent" mat-button (click)="opened=!opened">Menu</button>
+            </mat-sidenav-content>
+  </mat-sidenav-container>
+    -->
+        <!--
+          main page
+        -->
+        <section>
+          <nav class="navbar navbar-expand navbar-dark bg-dark">
+              <div class="navbar-nav">
+                  <a class="nav-item nav-link" routerLink="/">Home</a>
+                  <a class="nav-item nav-link" (click)="logout()">Logout</a>
+              </div>
+          </nav>
+        </section>
+
+        <div class="jumbotron">
+
+            
+             
+           
+               <!-- <form [formGroup]="form">
+                  <table align="center">
+                
+            
+         
+                    <td><mat-form-field >
+                        <input formControlName="empid" matInput placeholder="Employ-Id">
+                        </mat-form-field></td>
+                    <td><button mat-raised-button color="primary" (click)="detail()" >Submit</button></td>
+                  </table>
+                </form> -->
+            
+            <mat-horizontal-stepper linear>
+
+             <!-- <mat-step label="Data entery sec 1">
+              <p>Data entery sec 1</p>
+           
+              <form class="example-form" [formGroup]="EmpForm" (ngSubmit)="onSubmit(EmpForm)" >
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Employee" formControlName="empid">
+                    <div class="alert alert-danger" [hidden]="EmpForm.controls.empid.valid">EMP ID is required</div>
+                  </mat-form-field>
+                  <!--[formControl]="salutationControl"
+                  <table class="example-full-width" cellspacing="0"><tr>
+                    <td><mat-form-field>
+                        <mat-label>Salutation</mat-label>
+                        <mat-select formControlName="salutation" required>
+                          <mat-option >--</mat-option>
+                          <mat-option *ngFor="let sal of salutation" [value]="sal">
+                            {{sal}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="salutationControl.hasError('required')">Please choose an Salutation</mat-error>
+                      </mat-form-field></td>
+                    <td><mat-form-field class="example-full-width">
+                      <input matInput placeholder="First name" formControlName="fname" required>
+                    </mat-form-field></td>
+                    <td><mat-form-field class="example-full-width">
+                        <input matInput placeholder="Middle name" formControlName="mname" required>
+                      </mat-form-field></td>
+                    <td><mat-form-field class="example-full-width">
+                      <input matInput placeholder="Last Name" formControlName="lname" required>
+                    </mat-form-field></td>
+                  </tr>
+                 
+                  
+                  <tr>
+                      <td colspan="2"><mat-form-field class="example-full-width">
+                         <textarea matInput formControlName="caddress" placeholder="Address"></textarea>
+                       </mat-form-field></td>
+                       <td><mat-form-field class="example-full-width">
+                        <input matInput #postalCode maxlength="6" placeholder="Postal Code" formControlName="aadhar" value="xxxxxx">
+                        <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
+                      </mat-form-field></td>
+                      </tr>
+                      <tr>
+                      <td colspan="2"><mat-form-field class="example-full-width">
+                        <textarea matInput formControlName="paddress" placeholder="Permanent Address"></textarea>
+                      </mat-form-field></td>
+                      <td><mat-form-field class="example-full-width">
+                        <input matInput #postalCode maxlength="6" placeholder="Postal Code" value="xxxxxx">
+                        <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
+                      </mat-form-field></td>
+                    </tr>
+                    
+                    
+                    <tr>
+
+                            <td><mat-label>Matrital Status: </mat-label>
+                              <mat-radio-group formControlName="mstatus">
+                                <td><mat-radio-button value="Male" color="primary">Single</mat-radio-button></td>
+                                  <td><mat-radio-button value="Female" color="accent">Marrried</mat-radio-button></td>
+                                  </mat-radio-group>
+
+
+                      <td><mat-form-field class="example-full-width">
+                        <input matInput type="number" formControlName="nchild" placeholder="No. of children" required>
+                      </mat-form-field></td>
+                      <td><mat-form-field class="example-full-width">
+                        <input matInput formControlName="religion" placeholder="Religion" required>
+                      </mat-form-field></td>
+                      
+                    </tr>
+                      
+                    
+                    <tr>
+                      <td><mat-label>Gender: </mat-label>
+                        <mat-radio-group formControlName="gender">
+                          <td><mat-radio-button value="Male" color="primary">Male</mat-radio-button></td>
+                            <td><mat-radio-button value="Female" color="accent">Female</mat-radio-button></td>
+                            </mat-radio-group>
+                          <td><mat-form-field class="example-full-width">
+                            <input formControlName="caste" matInput placeholder="Caste" required>
+                          </mat-form-field></td>
+                          <td><mat-form-field>
+                              <input formControlName="dob" matInput [matDatepicker]="myDatePicker" placeholder="Dateofbirth">
+                              <mat-datepicker-toggle matSuffix [for]="myDatePicker"></mat-datepicker-toggle>
+                              <mat-datepicker #myDatePicker></mat-datepicker>
+                            </mat-form-field></td>
+                        </tr>
+                  
+                  <tr>
+                   <td><mat-label>Adhar card</mat-label></td>
+                    <td><mat-form-field class="example-full-width">
+                      <input formControlName="aadhar"  matInput #postalCode maxlength="14" placeholder="Adhar Number" value="xxxx-xxxx-xxxx">
+                      <mat-hint align="end">{{postalCode.value.length}} / 12</mat-hint>
+                    </mat-form-field></td>
+                    <td><mat-label>Pan card</mat-label></td>
+                    <td><mat-form-field class="example-full-width">
+                      <input matInput formControlName="pan"  #postalCode maxlength="14" placeholder="Pan Number" value="xxxx-xxxx-xxxx">
+                      <mat-hint align="end">{{postalCode.value.length}} / 12</mat-hint>
+                    </mat-form-field></td>
+                    
+                  </tr>
+
+                  <tr>
+                    
+                    <td>
+                    <mat-form-field class="example-full-width">
+                      <span matPrefix>+1 &nbsp;</span>
+                      <input type="tel" maxlength="10" formControlName="phone"  matInput placeholder="Telephone">
+                      <mat-icon matSuffix>mode_edit</mat-icon>
+                    </mat-form-field>
+                  </td>
+                      <td><mat-form-field class="email" >
+                          <input formControlName="pemail" matInput placeholder="Personal Emil-Id" required>
+                        </mat-form-field></td>
+      
+                      <td> <mat-form-field class="email" >
+                            <input formControlName="oemail" matInput placeholder="Official Emil-Id" required>
+                          </mat-form-field></td>
+                          </tr>
+                          </table>
+    
+                          <table align="center">
+                            <td><button mat-raised-button matStepperSubmit color="accent" >Submit</button></td>
+                            <td><button mat-raised-button matStepperNext color="primary">Next</button></td>
+                          </table>
+
+                 </form>
+                  
+            </mat-step> -->
+           
+    
+              <mat-step label="Data entery sec 1" > 
+                
+              <p>Data entery sec 1</p>
+              
+                  <form #formcontrol class="example-form" [formGroup]="des2">
+                    
+                      <table cellspacing="0"><tr>
+                         
+                            
+                            <td><mat-form-field >
+                                <input formControlName="empid" matInput placeholder="Employ-Id">
+                                </mat-form-field></td>
+
+                      </tr>
+
+                      </table>
+                        <table class="example-full-width" cellspacing="0"><tr>
+                         
+                          <td><mat-form-field class="col1">
+                              <input formControlName="diploma" matInput placeholder="Qualification" value="Diploma" required>
+                            </mat-form-field></td>
+                           <td><mat-form-field class="example-full-width">
+                              <input formControlName="class_diploma" matInput placeholder="Clas/Grade Diploma" required>
+                            </mat-form-field></td>
+                            
+                            <td><mat-form-field class="col1">
+                                <input formControlName="diplomainst" matInput placeholder="Diploma-Institute" >
+                              </mat-form-field></td>
+                              <td><mat-form-field class="col1">
+                                  <input formControlName="diplomaboard" matInput placeholder="Diploma-Board">
+                                </mat-form-field></td>
+
+                                <td><mat-form-field class="example-full-width">
+                                    <input formControlName="diplomamonthyr" type="date" matInput placeholder="Passing Month&year" >
+                                  </mat-form-field></td>
+
+                                
+    
+    
+                              </tr>
+                      </table>
+                        
+                         
+                      <table class="example-full-width" cellspacing="0"><tr>
+                        <td><mat-form-field class="col1">
+                            <input formControlName="pgqual" matInput placeholder="Qualification PG(Subject)" >
+                          </mat-form-field></td>
+                         <td><mat-form-field class="example-full-width">
+                            <input formControlName="pgclass" matInput placeholder="Clas/Grade PG" >
+                          </mat-form-field></td>
+                          
+                          <td><mat-form-field class="col1">
+                              <input formControlName="pginst" matInput placeholder="PG-Institute" >
+                            </mat-form-field></td>
+                            <td><mat-form-field class="col1">
+                                <input formControlName="pguniversity" matInput placeholder="PG-University">
+                              </mat-form-field></td>
+
+
+                                <td><mat-form-field class="example-full-width">
+                                    <input formControlName="pgmonth" type="date" matInput placeholder="Passing Month&year" >
+                                  </mat-form-field></td>
+    
+                            </tr>
+                    </table>
+                           
+                    <table class="example-full-width" cellspacing="0"><tr>
+                      <td><mat-form-field class="col1">
+                          <input formControlName="qual_ug" matInput placeholder="Qualification UG(Subject)" >
+                        </mat-form-field></td>
+                       <td><mat-form-field class="example-full-width">
+                          <input formControlName="grade_ug" matInput placeholder="Clas/Grade UG" >
+                        </mat-form-field></td>
+                        
+                        <td><mat-form-field class="col1">
+                            <input formControlName="uginst" matInput placeholder="UG-Institute" >
+                          </mat-form-field></td>
+                          <td><mat-form-field class="col1">
+                              <input formControlName="uguniversity" matInput placeholder="UG-University">
+                            </mat-form-field></td>
+
+                             
+                            <td><mat-form-field class="example-full-width">
+                                <input formControlName="ugmonthyr" type="date" matInput placeholder="Passing Month&year" >
+                              </mat-form-field></td>
+    
+                          </tr>
+                  </table>
+                    
+                  <table class="example-full-width" cellspacing="0"><tr>
+                    <td><mat-form-field class="example-full-width">
+                        <input formControlName="phdsubj" matInput placeholder="Ph.D.(Subject)" >
+                      </mat-form-field></td>
+                      
+                      <td><mat-form-field class="col1">
+                          <input formControlName="phdinst" matInput placeholder="Ph.D-Institute" >
+                        </mat-form-field></td>
+                        <td><mat-form-field class="col1">
+                            <input formControlName="phduniversity" matInput placeholder="Ph.D-University">
+                          </mat-form-field></td>
+                          <td><mat-form-field class="example-full-width">
+                              <input formControlName="areaspecial" matInput placeholder="Area of specialization NET/SET">
+                            </mat-form-field></td>
+
+                           
+
+                            <td><mat-form-field class="example-full-width">
+                                <input formControlName="phdmonthyr" type="date" matInput placeholder="Passing Month&year" >
+                              </mat-form-field></td>
+    
+                        </tr>
+                </table>
+                  
+                <table class="example-full-width" cellspacing="0"><tr>
+                <!--  <td><mat-form-field class="example-full-width">
+                      <input matInput placeholder="Other Qualification" >
+                    </mat-form-field></td>
+                    
+                    <td><mat-form-field class="example-full-width">
+                        <input matInput placeholder="Class/grade" >
+                      </mat-form-field></td>
+                      
+    
+                      </tr>
+              </table>
+    
+              <table class="example-full-width" cellspacing="0"><tr>
+                
+                 
+                <td><mat-form-field class="example-full-width">
+                    <input matInput placeholder="Past Teaching Experience" >
+                  </mat-form-field></td>
+
+
+                        <td><mat-form-field>
+                          <input formControlName="pastteaching"  matInput [matDatepicker]="techDatePicker" placeholder="Month&year">
+                          <mat-datepicker-toggle matSuffix [for]="techDatePicker"></mat-datepicker-toggle>
+                          <mat-datepicker #techDatePicker></mat-datepicker>
+                        </mat-form-field></td>
+        
+    
+                    </tr>
+            </table>
+              
+            <table class="example-full-width" cellspacing="0"><tr>
+              <td>
+                  <mat-label>Past Industrial Experience</mat-label>
+                </td>
+
+                      
+                    <td><mat-form-field>
+                      <input formControlName="pastindustry"  matInput [matDatepicker]="IndDatePicker" placeholder="Month&year">
+                      <mat-datepicker-toggle matSuffix [for]="IndDatePicker"></mat-datepicker-toggle>
+                      <mat-datepicker #IndDatePicker></mat-datepicker>
+                    </mat-form-field></td>
+    
+                  </tr>
+          </table>
+          <table class="example-full-width" cellspacing="0"><tr>
+            <td>
+                <mat-label>Past Research Experience</mat-label>
+            </td>
+
+                    <td><mat-form-field>
+                      <input formControlName="pastresearch"  matInput [matDatepicker]="ResDatePicker" placeholder="Month&year">
+                      <mat-datepicker-toggle matSuffix [for]="ResDatePicker"></mat-datepicker-toggle>
+                      <mat-datepicker #ResDatePicker></mat-datepicker>
+                    </mat-form-field></td>
+                  -->
+                  <!--<td><mat-form-field class="pte">
+                    <input formControlName="past_teaching" matInput placeholder="Past Teaching Experience" >
+                  </mat-form-field></td>
+                  
+  
+                 
+  
+                  <td><mat-form-field class="example-full-width">
+                    <input formControlName="pt_stardate" type="date" matInput placeholder="From" >
+                  </mat-form-field></td>
+      
+                  <td><mat-form-field class="example-full-width">
+                    <input formControlName="pt_enddate" type="date" matInput placeholder="To" >
+                  </mat-form-field></td>
+                  </tr>
+                  <tr>
+                  <td><mat-form-field class="example-full-width">
+                    <input formControlName="past_industry" matInput placeholder="Past Industrial Experience" >
+                  </mat-form-field></td>
+  
+                  <td><mat-form-field class="example-full-width">
+                    <input formControlName="pi_startdate" type="date" matInput placeholder="From" >
+                  </mat-form-field></td>
+      
+                  <td><mat-form-field class="example-full-width">
+                    <input formControlName="pi_enddate" type="date" matInput placeholder="To" >
+                  </mat-form-field></td>
+                  </tr>
+                  <tr>
+
+                  <td><mat-form-field class="example-full-width">
+                    <input formControlName="past_research" matInput placeholder="Past Research Experience" >
+                  </mat-form-field></td>
+                  
+                  <td><mat-form-field class="example-full-width">
+                    <input formControlName="pr_startdate" type="date" matInput placeholder="From" >
+                  </mat-form-field></td>
+      
+                  <td><mat-form-field class="example-full-width">
+                    <input formControlName="pr_enddate" type="date" matInput placeholder="To" >
+                  </mat-form-field></td> -->
+
+                </tr>
+        </table>
+            
+                      
+                    </form>
+              
+    
+    
+              <div>
+                <table align="center"><tr>
+                <td><button mat-raised-button matStepperSubmit color="accent" (click)="Submit()" [disabled]="des2.invalid">Submit</button></td>
+                <td><button mat-raised-button matStepperNext color="primary">Next</button></td>
+              </tr></table>
+              </div>
+            </mat-step>
+              <mat-step label="Data entery sec 2" required>
+              <p>Data entery sec 2</p>
+    
+    
+              <mat-accordion class="example-headers-align">
+                <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Publications(National Journal)
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        Click to enter detail
+                        <mat-icon>date_range</mat-icon>
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    
+                    <form class="example-form" [formGroup]="des31">
+                    <table class="example-full-width" cellspacing="0"><tr>
+                   <mat-form-field>
+                      <input formControlName="author" matInput placeholder="Name of Author">
+                    </mat-form-field>
+                    
+                  
+                    <mat-form-field>
+                      <input matInput formControlName="title" placeholder="Title of Paper">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput formControlName="name" placeholder="Name of Journal">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput formControlName="ISSN" placeholder="ISSN/FSBN" minlength="8" maxlength="8" type="text" pattern="\d*">
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                      <input matInput formControlName="vol_no" type="number" placeholder="Volume No.">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput formControlName="issue_no"  type="number" placeholder="Issue Number">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput formControlName="pages" type="number" placeholder="pages">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput placeholder="Date" formControlName="date" type="date" >
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                      <input matInput placeholder="Employee_ID" formControlName="Employee_ID">
+                    </mat-form-field>
+                    </tr>
+
+                    </table>
+                    
+                      
+                
+                    <mat-action-row>
+                        <button mat-button color="primary" (click)="nextStep()">Next</button>
+                      <button mat-button color="warn" (click)="Submit31()" [disabled]="des31.invalid">Submit</button>
+                    </mat-action-row>
+                    </form>
+                  </mat-expansion-panel>
+            
+                  <mat-expansion-panel [expanded]="step === 1" [formGroup]="des32" (opened)="setStep(1)" hideToggle>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          Publications(Inter National Journal)
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Inform the date you wish to get Report
+                          <mat-icon>date_range</mat-icon>
+                        </mat-panel-description>
+                      </mat-expansion-panel-header>
+                  
+          
+                      <mat-form-field>
+                        <input matInput placeholder="Name of Author" formControlName="author">
+                      </mat-form-field>
+                      
+                    
+                      <mat-form-field>
+                        <input matInput placeholder="Title of Paper" formControlName="title">
+                      </mat-form-field>
+                    
+                      <mat-form-field>
+                        <input matInput placeholder="Name of Journal" formControlName="name">
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="ISSN/FSBN" formControlName="ISSN" minlength="8" maxlength="8" type="text" pattern="\d*">
+                      </mat-form-field>
+                      <br>
+                      <mat-form-field>
+                        <input matInput placeholder="Volume No." type="number" formControlName="vol_no">
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="Issue Number" type="number" formControlName="issue_no">
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="pages" type="number" formControlName="pages">
+                      </mat-form-field>
+                  
+                  
+                  
+                  
+                  
+                  
+            
+                  
+                      <mat-form-field>
+                        <input matInput placeholder="Date" type="date" formControlName="date">
+                      </mat-form-field>
+                      <br>
+                      <mat-form-field>
+                        <input matInput placeholder="Employee_ID"  formControlName="Employee_ID">
+                      </mat-form-field>
+                      
+                      <mat-action-row>
+                          <button mat-button color="primary" (click)="nextStep()">Next</button>
+                          <button mat-button color="warn" (click)="Submit32()" [disabled]="des32.invalid">Submit</button>
+                      </mat-action-row>
+                    </mat-expansion-panel>
+            
+              
+                <mat-expansion-panel [expanded]="step === 2" [formGroup]="des33" (opened)="setStep(2)" hideToggle>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Publications(National Conference)
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Inform the date you wish to get Report
+                      <mat-icon>date_range</mat-icon>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+              
+                  <mat-form-field>
+                    <input matInput formControlName="author" placeholder="Name of Author">
+                  </mat-form-field>
+                  
+                
+                  <mat-form-field>
+                    <input matInput formControlName="title" placeholder="Title of Paper">
+                  </mat-form-field>
+                
+                  <mat-form-field>
+                    <input matInput  formControlName="name" placeholder="Name of Journal">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput placeholder="ISSN/FSBN" formControlName="ISSN" minlength="8" maxlength="8" type="text" pattern="\d*" >
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field>
+                    <input matInput placeholder="Volume No." type="number"  formControlName="vol_no">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput placeholder="Issue Number" type="number" formControlName="issue_no">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput placeholder="pages" type="number"  formControlName="pages">
+                  </mat-form-field>
+              
+              
+              
+              
+              
+              
+          
+              
+                  <mat-form-field>
+                    <input matInput placeholder="Date" type="date" formControlName="date">
+                  </mat-form-field>
+              
+                  
+                  <mat-form-field>
+                    <input matInput placeholder="Employee_ID" formControlName="Employee_ID">
+                  </mat-form-field>
+
+                  <mat-action-row>
+                      <button mat-button color="primary" (click)="nextStep()">Next</button>
+                    <button mat-button color="warn" (click)="Submit33()" [disabled]="des33.invalid">Submit</button>
+                  </mat-action-row>
+                </mat-expansion-panel>
+          
+                <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Publications(Inter National Conference)
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Inform the date you wish to get Report
+                      <mat-icon>date_range</mat-icon>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+              
+                  <form class="example-form" [formGroup]="des34">
+                    <table class="example-full-width" cellspacing="0"><tr>
+                   <mat-form-field>
+                      <input formControlName="author" matInput placeholder="Name of Author">
+                    </mat-form-field>
+                    
+                  
+                    <mat-form-field>
+                      <input matInput formControlName="title" placeholder="Title of Paper">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput formControlName="name" placeholder="Name of Journal">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput formControlName="ISSN" placeholder="ISSN/FSBN" minlength="8" maxlength="8" type="text" pattern="\d*">
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                      <input matInput formControlName="vol_no" type="number" placeholder="Volume No.">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput formControlName="issue_no"  type="number" placeholder="Issue Number">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput formControlName="pages" type="number" placeholder="pages">
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input matInput placeholder="Date" formControlName="date" type="date" >
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                      <input matInput placeholder="Employee_ID" formControlName="Employee_ID">
+                    </mat-form-field>
+                    </tr>
+
+                    </table>
+                    
+                      
+                
+                    <mat-action-row>
+                        <button mat-button color="primary" (click)="nextStep()">Next</button>
+                      <button mat-button color="warn" (click)="Submit34()" [disabled]="des34.invalid">Submit</button>
+                    </mat-action-row>
+                    </form>
+                </mat-expansion-panel>
+              
+          
+                <mat-expansion-panel [expanded]="step === 4" [formGroup]="des35" (opened)="setStep(4)" hideToggle>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Book Published
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Inform the date you wish to get Report
+                      <mat-icon>date_range</mat-icon>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+              
+                 
+          
+                  <mat-form-field>
+                    <input matInput placeholder="Name of Author" formControlName="author">
+                  </mat-form-field>
+                  
+                
+                  <mat-form-field>
+                    <input matInput placeholder="Title of Book" formControlName="title">
+                  </mat-form-field>
+                
+                  
+                  <mat-form-field>
+                    <input matInput placeholder="Date of Publication" type="date"  formControlName="date">
+                  </mat-form-field>
+                  <br>
+                  
+                  <mat-form-field>
+                    <input matInput placeholder="pages" type="number" formControlname="pages">
+                  </mat-form-field>
+
+                  <mat-datepicker #Date5></mat-datepicker>
+              
+                  <mat-action-row>
+                      <button mat-button color="primary" (click)="nextStep()" >Next</button>
+                    <button mat-button color="warn" (click)="Submit35()">Submit</button>
+                  </mat-action-row>
+                </mat-expansion-panel>
+          
+                <mat-expansion-panel [expanded]="step === 5" (opened)="setStep(5)" hideToggle>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Patent Granted
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Inform the date you wish to get Report
+                      <mat-icon>date_range</mat-icon>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+              
+                  <mat-form-field>
+                    <input matInput placeholder="Name of Author">
+                  </mat-form-field>
+                  
+                
+                  <mat-form-field>
+                    <input matInput placeholder="Title of Paper">
+                  </mat-form-field>
+                
+                  <mat-form-field>
+                    <input matInput placeholder="Name of Patent">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput placeholder="ISSN/FSBN">
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field>
+                    <input matInput placeholder="Volume No.">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput placeholder="Issue Number">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput placeholder="pages">
+                  </mat-form-field>
+              
+              
+              
+              
+              
+              
+          
+              
+                  <mat-form-field>
+                    <input matInput placeholder="Date" [matDatepicker]="Date6" (focus)="Date6.open()" readonly>
+                  </mat-form-field>
+                  <mat-datepicker #Date6></mat-datepicker>
+          
+                  
+          
+                  
+              
+                  <mat-action-row>
+                      <button mat-button color="primary" (click)="nextStep()">Next</button>
+                    <button mat-button color="warn" >Submit</button>
+                  </mat-action-row>
+                </mat-expansion-panel>
+          
+                <mat-expansion-panel [expanded]="step === 6" (opened)="setStep(6)" hideToggle>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Award received 
+                      </mat-panel-title>
+                      <mat-panel-description>
+                          Inform the date you wish to get Report
+                        <mat-icon>date_range</mat-icon>
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                
+                    <mat-form-field>
+                      <input matInput placeholder="Name of Award">
+                    </mat-form-field>
+                    
+                  
+                    <mat-form-field>
+                      <input matInput placeholder="Issuing Agency">
+                    </mat-form-field>
+                  
+                    <mat-form-field>
+                      <input matInput placeholder="Year">
+                    </mat-form-field>
+                   
+                
+                  
+                
+                    <mat-action-row>
+                        <button mat-button color="primary" (click)="nextStep()">Next</button>
+                      <button mat-button color="warn" >Submit</button>
+                    </mat-action-row>
+                  </mat-expansion-panel>
+          
+                  
+                <mat-expansion-panel [expanded]="step === 7" (opened)="setStep(7)" hideToggle>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Grant received 
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Inform the date you wish to get Report
+                      <mat-icon>date_range</mat-icon>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+              
+                  <mat-form-field>
+                    <input matInput placeholder="Funding Agency">
+                  </mat-form-field>
+                  
+                
+                  <mat-form-field>
+                    <input matInput placeholder="Total Amount">
+                  </mat-form-field>
+                
+                  <mat-form-field>
+                    <input matInput placeholder="Purpose of Grant">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput placeholder="Year">
+                  </mat-form-field>
+                  
+          
+              
+              
+              
+              
+              
+              
+          
+              
+                  <mat-form-field>
+                    <input matInput placeholder="Date" [matDatepicker]="Date8" (focus)="Date8.open()" readonly>
+                  </mat-form-field>
+                  <mat-datepicker #Date8></mat-datepicker>
+          
+                  
+          
+                  
+              
+                  <mat-action-row>
+                    <button mat-button color="primary" (click)="prevStep()">Previous</button>
+                    <button mat-button color="warn" >Submit</button>
+                  </mat-action-row>
+                </mat-expansion-panel>
+                
+              </mat-accordion>
+              
+            </mat-step>
+              <mat-step label="Data entry sec 3" >
+              <p>Data entery sec 3</p>
+    
+              <form class="example-form" [formGroup]="des4">
+    
+                  <table class="example-full-width" cellspacing="0"><tr>
+                      <td><mat-label>Bank Account No.</mat-label></td>
+                      <td><mat-form-field class="example-full-width">
+                        <input formControlName="bankaccno" matInput #postalCode maxlength="12" placeholder="Bank Account No." value="xxxx-xxxx-xxxx">
+                        <mat-hint align="end">{{postalCode.value.length}} / 12</mat-hint>
+                      </mat-form-field></td>
+                      <td><mat-form-field class="example-full-width">
+                          <input formControlName="bankname" matInput placeholder="Bank Name" >
+                        </mat-form-field></td>
+                        
+                       
+                      
+                      <td><mat-form-field class="example-full-width">
+                          <input formControlName="banknamebr" matInput placeholder="Branch Name" >
+                        </mat-form-field></td>
+    </tr>
+      
+    <tr>
+          <td><mat-form-field class="example-full-width">
+              <input formControlName="dep" matInput placeholder="Department" >
+            </mat-form-field></td>
+    <!--
+      Department
+    -->
+    
+    <td><mat-form-field>
+        <mat-label>Desg</mat-label>
+        <mat-select [formControl]="desgControl" required>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let desg of desgs" value="salutation">
+            {{desg.value}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="desgControl.hasError('required')">Please choose an Designation</mat-error>
+      </mat-form-field></td>
+
+        <td><mat-form-field>
+          <input formControlName="date_join"  matInput type="date" placeholder="Date of Joining">
+          <mat-datepicker-toggle matSuffix [for]="JoinDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #JoinDatePicker></mat-datepicker>
+        </mat-form-field></td>
+
+          <td><mat-form-field>
+            <input formControlName="date_conf" matInput type="date" placeholder="Date of Confirmation">
+            <mat-datepicker-toggle matSuffix [for]="ConfDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #ConfDatePicker></mat-datepicker>
+          </mat-form-field></td>
+    </tr>
+   
+    <tr>
+    <td><mat-label>University approval Number</mat-label></td>
+    
+    
+    
+                      <td><mat-form-field class="example-full-width">
+                        <input formControlName="univapprno" matInput #postalCode maxlength="12" placeholder="University approval No." value="xxxx-xxxx-xxxx">
+                        <mat-hint align="end">{{postalCode.value.length}} / 12</mat-hint>
+                      </mat-form-field></td>
+
+
+      
+      <td><mat-form-field>
+        <input formControlName="univapprnodate" matInput type="date" placeholder="Date of approval">
+        <mat-datepicker-toggle matSuffix [for]="UniDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #UniDatePicker></mat-datepicker>
+      </mat-form-field></td>
+
+      
+      </tr>
+    
+                   
+              
+              
+              <tr>
+                              <td><mat-label>University approval period</mat-label></td>
+
+                                <td><mat-form-field>
+                                  <input formControlName="uni_apprperiodpg" matInput type="date" placeholder="Date">
+                                  <mat-datepicker-toggle matSuffix [for]="app2DatePicker"></mat-datepicker-toggle>
+                                  <mat-datepicker #app2DatePicker></mat-datepicker>
+                                </mat-form-field></td>
+                              
+                                                <td><mat-form-field class="example-full-width">
+                                                  <input formControlName="uni_apprnumber" matInput #postalCode maxlength="12" placeholder="University approval No." value="xxxx-xxxx-xxxx">
+                                                  <mat-hint align="end">{{postalCode.value.length}} / 12</mat-hint>
+                                                </mat-form-field></td>
+                                                
+                                                <td><mat-label>Date as PG Teacher</mat-label></td>
+                              
+
+                                <td><mat-form-field>
+                                  <input formControlName="dateaspg" matInput type="date" placeholder="Date as PG Teacher">
+                                  <mat-datepicker-toggle matSuffix [for]="pgteacher"></mat-datepicker-toggle>
+                                  <mat-datepicker #pgteacher></mat-datepicker>
+                                </mat-form-field></td>
+
+                                
+                                </tr>
+                                
+                                <tr>
+                                                <td><mat-label>University approval period</mat-label></td>
+                                               
+
+                                                  <td><mat-form-field>
+                                                    <input formControlName="uni_apprperiodphd" matInput type="date" placeholder="Date ">
+                                                    <mat-datepicker-toggle matSuffix [for]="app3DatePicker"></mat-datepicker-toggle>
+                                                    <mat-datepicker #app3DatePicker></mat-datepicker>
+                                                  </mat-form-field></td>
+                                                
+                                                                  <td><mat-form-field class="example-full-width">
+                                                                    <input formControlName="uni_apprnumberphd" matInput #postalCode maxlength="12" placeholder="University approval No." value="xxxx-xxxx-xxxx">
+                                                                    <mat-hint align="end">{{postalCode.value.length}} / 12</mat-hint>
+                                                                  </mat-form-field></td>
+                                                                  
+                                                                  <td><mat-label>Date as Ph.D Guide</mat-label></td>
+                                                
+                                                  <td><mat-form-field>
+                                                    <input formControlName="dateasphd" matInput type="date" placeholder="Date as Ph.D Teacher">
+                                                    <mat-datepicker-toggle matSuffix [for]="phdteacher"></mat-datepicker-toggle>
+                                                    <mat-datepicker #phdteacher></mat-datepicker>
+                                                  </mat-form-field></td>
+                                </tr>
+                                                  
+                                                             
+                                                  <tr>
+                                                                <td><mat-label>Appointment Expiry Date(if Temporary)</mat-label></td>
+                                                                
+                                <td><mat-form-field>
+                                  <input formControlName="app_expiry_temp" matInput type="date" placeholder="If Temporary">
+                                  <mat-datepicker-toggle matSuffix [for]="expDatePicker"></mat-datepicker-toggle>
+                                  <mat-datepicker #expDatePicker></mat-datepicker>
+                                </mat-form-field></td>
+                                                              <td><mat-label>Staff:</mat-label>
+                                                                    <mat-radio-group formControlName="ug_pg">
+                                                                        <td><mat-radio-button value="UG" color="primary">UG</mat-radio-button></td>
+                                                                        <td><mat-radio-button value="PG" color="accent">PG</mat-radio-button></td>
+                                                                        </mat-radio-group>
+
+                 
+                                                                        <td><mat-label>Present Staff:</mat-label>
+                                                                          <mat-radio-group formControlName="presentstaff">
+                                                                            <td><mat-radio-button value="YES" color="primary">YES</mat-radio-button></td>
+                                                                              <td><mat-radio-button value="NO" color="accent">NO</mat-radio-button></td>
+                                                                              </mat-radio-group></td>
+                                                                        </tr>
+                                                                        
+                                                                        
+                                                                        <tr>
+                                                                          <td><mat-form-field>
+                                                                              <mat-label>PAY BAND</mat-label>
+                                                                              <span matPrefix>₹ &nbsp;</span>
+                                                                              <mat-select [formControl]="paybandControl" required>
+                                                                                <mat-option>--</mat-option>
+                                                                                <mat-option *ngFor="let payband of paybands" value="payband">
+                                                                                  {{payband.value}}
+                                                                                </mat-option>
+                                                                              </mat-select>
+                                                                              <mat-error *ngIf="paybandControl.hasError('required')">Please choose a payband</mat-error>
+                                                                            </mat-form-field></td>
+                                                                          <td><mat-form-field class="example-full-width">
+                                                                              <span matPrefix>₹ &nbsp;</span>
+                                                                            <input type="number" formControlName="pay" matInput placeholder="PAY" required>
+                                                                          </mat-form-field></td>
+                                                                          <td><mat-form-field class="example-full-width">
+                                                                              <span matPrefix>₹ &nbsp;</span>
+                                                                              <input formControlName="paygrade" matInput placeholder="GRADE PAY" required>
+                                                                            </mat-form-field></td>
+                                                                           
+                                                                            <td><mat-form-field class="example-full-width">
+                                                                              <input matInput formControlName="uan" #postalCode maxlength="10" placeholder="UAN" value="xxxxxxxxxx">
+                                                                              <mat-hint align="end">{{postalCode.value.length}} / 10</mat-hint>
+                                                                            </mat-form-field></td>
+                                                                            
+                                                                            <td><mat-form-field class="example-full-width">
+                                                                              <input matInput formControlName="pfaccno" #postalCode maxlength="14" placeholder="PF Account No." value="xxxx-xxxx-xxxx">
+                                                                              <mat-hint align="end">{{postalCode.value.length}} / 12</mat-hint>
+                                                                            </mat-form-field></td>
+                                                                            
+                                                                        </tr>
+                                                                        
+                                                                        <tr>
+                     
+                            <td><mat-label>Resignation Date</mat-label></td>
+                  
+                                                                
+                              <td><mat-form-field>
+                                <input formControlName="resign_date" matInput type="date" placeholder="Date of resignation">
+                                <mat-datepicker-toggle matSuffix [for]="regDatePicker"></mat-datepicker-toggle>
+                                <mat-datepicker #regDatePicker></mat-datepicker>
+                              </mat-form-field></td>
+    
+                              
+                            <td><mat-label>Relieving Date</mat-label></td>
+                            
+                              <td><mat-form-field>
+                                <input formControlName="relieve_date" matInput type="date" placeholder="Date of relieving">
+                                <mat-datepicker-toggle matSuffix [for]="relDatePicker"></mat-datepicker-toggle>
+                                <mat-datepicker #relDatePicker></mat-datepicker>
+                              </mat-form-field></td>
+    
+                          </tr>
+                  
+                          
+                          <tr>
+                    
+                    
+
+                            <td colspan="2"><mat-label>Staff Type : </mat-label>
+                              <mat-radio-group formControlName="staff_type">
+                                <td><mat-radio-button value="Male" color="primary">Teaching</mat-radio-button></td>
+                                  <td><mat-radio-button value="Female" color="accent">NON-Teaching</mat-radio-button></td>
+                                  </mat-radio-group>
+    
+                    <td><mat-label>Subtype if Non-Teaching : </mat-label>
+                      <td><mat-radio-group formControlName="sub_staff_type">
+                        <td><mat-radio-button value="Male" color="primary">Teachincal</mat-radio-button></td>
+                          <td><mat-radio-button value="Female" color="accent">Non-Teachincal</mat-radio-button></td>
+                          </mat-radio-group></td>
+                  </tr>
+                  
+                  <tr>
+                     
+                    <td><mat-label>Increment Month :</mat-label></td>
+
+                      <td><mat-form-field>
+                        <input formControlName="increment_month" matInput type="date" placeholder="Date of increment">
+                        <mat-datepicker-toggle matSuffix [for]="incDatePicker"></mat-datepicker-toggle>
+                        <mat-datepicker #incDatePicker></mat-datepicker>
+                      </mat-form-field></td>
+                            
+                      <td colspan="2"><mat-label>Vacation : </mat-label>
+                        <mat-radio-group formControlName="vacation">
+                          <td><mat-radio-button value="YES" color="primary">YES</mat-radio-button></td>
+                            <td><mat-radio-button value="NO" color="accent">NO</mat-radio-button></td>
+                            </mat-radio-group>
+    
+                  </tr>
+
+                  <tr>
+    
+                  <td colspan="4"><mat-form-field class="example-full-width">
+                    <textarea formControlName="remarks" matInput placeholder="Remark"></textarea>
+                  </mat-form-field></td>
+                  </tr>
+          </table>
+    
+    
+    
+    
+                                                                      
+   
+    
+              <table align="center">
+                <td><button mat-raised-button matStepperPrevious color="accent">Back</button></td>
+                <td><button mat-raised-button matStepperSubmit color="accent" (click)="Submit4()" [disabled]="des4.invalid">Submit</button></td>
+              </table>
+            </form>
+            </mat-step>
+            </mat-horizontal-stepper>
+  </div>
+      <!----
+      <button color="primary" mat-raised-button>hi</button>
+      
+      <button color="primary" mat-button>hi</button>
+      
+      <div>
+        <mat-icon>grade</mat-icon>
+        <mat-icon color="primary">
+            grade
+          </mat-icon>
+      </div>
+      
+      <mat-radio-group>
+      <mat-radio-button value="Male" color="primary">Male</mat-radio-button>
+      <mat-radio-button value="Female" color="accent">Female</mat-radio-button>
+      </mat-radio-group>
+    
+    -->
+  

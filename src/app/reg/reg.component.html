@@ -1,0 +1,64 @@
+<mat-sidenav-container>
+    <mat-sidenav mode="over" [(opened)]="opened"><mat-icon>home</mat-icon>PICT MIS SYSTEM
+        <mat-icon mat-button (click)="opened=!opened" aria-hidden="false" aria-label="Example home icon">close</mat-icon>
+        <mat-list role="list">
+            <mat-list-item role="listitem"><button color="primary" routerLink="/empdetail" mat-raised-button>New Emplyee Form</button></mat-list-item>
+            <mat-list-item role="listitem"><button color="primary" routerLink="/form" mat-raised-button>Enter Employee Detail</button></mat-list-item>
+            <mat-list-item role="listitem"><button color="primary" routerLink="/reg" mat-raised-button>View Register Employee</button></mat-list-item>
+            <mat-list-item role="listitem"><button color="primary" routerLink="/new-reg-user" mat-raised-button>Register new User</button></mat-list-item>
+          </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+       
+        
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="navbar-nav">
+        <button color="accent" mat-button (click)="opened=!opened"><mat-icon>menu</mat-icon></button>
+        <a class="nav-item nav-link" routerLink="/home">Home</a>
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    </div>
+  </nav>
+
+<div class="jumbotron">
+    <table align="center">
+<h3>All registered users:</h3>
+<ul>
+    <li *ngFor="let user of users">
+        {{user.username}} ({{user.firstName}} {{user.lastName}}) 
+       
+    </li>
+
+
+</ul>
+</table>
+</div>
+            </mat-sidenav-content>
+  </mat-sidenav-container>
+
+
+<style>
+.jumbotron{
+    background: #1c1c1c;
+   
+}
+body {
+margin: 0;
+font-family: Roboto, "Helvetica Neue", sans-serif;
+/* width: 50%; */
+padding: 73px 400px 0;
+}
+    li,p,h1,h2, h3, h4, h5, h6 {
+    margin-bottom: .5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: white;
+}
+table {
+border-collapse: collapse;
+color: white;
+}
+
+
+
+</style>

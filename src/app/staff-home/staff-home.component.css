@@ -1,0 +1,50 @@
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+  
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+mat-form-field {
+  margin-right: 12px;
+  
+}
+
+element.style {
+  width: 100%;
+}
+table {
+  border-collapse: collapse; 
+  width: 70%;
+}
+
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+  height: 100%;
+}
+
+mat-sidenav {
+  width: 250px;
+}
+
+main {
+  padding: 10px;
+}
+
+html, body { 
+  margin: 0;
+  height: 100%;
+}
+
+.ab{
+  background: black;
+}
+.mark, mark {
+  padding: .2em;
+  background-color: transparent;
+  color: white;
+}

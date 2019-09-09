@@ -1,0 +1,22 @@
+h1{
+    text-align: center;
+    text-decoration: underline;
+}
+
+h3{
+    text-align: right;
+}
+table {
+    width: 100%;
+  }
+  .mat-card{
+      padding: 4% 10% 10% 10%;
+  }
+
+ .example-full-width{
+     width: 10%;
+ }
+
+ .example{
+     width: 50px;
+ }

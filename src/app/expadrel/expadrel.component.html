@@ -1,0 +1,52 @@
+<mat-sidenav-container>
+    <mat-sidenav mode="over" [(opened)]="opened"><mat-icon>home</mat-icon>PICT MIS SYSTEM
+        <mat-icon mat-button (click)="opened=!opened" aria-hidden="false" aria-label="Example home icon">close</mat-icon>
+        <mat-list role="list">
+            <mat-list-item role="listitem"><button color="primary" routerLink="/staff-form" mat-raised-button>Emplyee Form</button></mat-list-item>
+            <mat-list-item role="listitem"><button color="primary" routerLink="/report" mat-raised-button>Report</button></mat-list-item>
+            <mat-list-item role="listitem"><button color="primary" routerLink="/salary" mat-raised-button>salary</button></mat-list-item>
+            <mat-list-item role="listitem"><button color="primary" routerLink="/experience" mat-raised-button>Experience</button></mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+       
+        
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="navbar-nav">
+        <button color="accent" mat-button (click)="opened=!opened"><mat-icon>menu</mat-icon></button>
+        <a class="nav-item nav-link" routerLink="/staff-home">Home</a>
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    </div>
+  </nav>
+  <div class="jumbotron">
+<mat-card>
+    <h3 class="h3">Date:4/4/2019</h3>
+    <br>
+    <br>
+    <div>
+        <h2>EXPERIENCE & RELIEVING CERTIFICATE</h2>
+        <br>
+        <br>
+        <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is to certify that __Name of Employee__ was working in this Institute as __Designation__ in __Department__ Form __Joining Date__ To __Relieving Date__ .<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;He/She has resigned from his/her post on his/her own accord . He/She is relieved from his/her duties on _-Relieving Date__  after office hours..</h3>
+    </div>
+         
+            
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id = "leftbox">
+        <label><b>Asst. Registrar</b></label>
+    </div>
+    <div id = "rightbox" align="right">
+        <label><b>Principal</b></label>
+    </div>
+</mat-card>
+<!--
+<div align="right">
+    <button mat-raised-button>Download as PDF</button>
+</div>
+-->
+</div>
+</mat-sidenav-content>
+</mat-sidenav-container>

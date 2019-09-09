@@ -1,0 +1,187 @@
+<!--<mat-toolbar color="primary" class="navbar">
+    <div>P.I.C.T - MIS SYSTEM </div>
+    <div>
+    <span>Home</span>
+    <span>logout</span>
+      </div>
+  </mat-toolbar> 
+-->
+ <!-- 
+  <mat-sidenav-container>
+    <mat-sidenav mode="over" [(opened)]="opened">Sidenav
+        <button color="accent" mat-button (click)="opened=!opened">close</button>
+        <div><button color="primary" mat-raised-button>New emplyee</button></div>
+        <div><button color="primary" mat-raised-button>View specific Employee</button></div>
+        <div><button color="primary" mat-raised-button>Report</button></div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <button color="accent" mat-button (click)="opened=!opened">Menu</button>
+            </mat-sidenav-content>
+  </mat-sidenav-container>
+    -->
+        <!--
+          main page
+        -->
+        <section>
+          <nav class="navbar navbar-expand navbar-dark bg-dark">
+              <div class="navbar-nav">
+                  <a class="nav-item nav-link" routerLink="/">Home</a>
+                  <a class="nav-item nav-link" (click)="logout()">Logout</a>
+              </div>
+          </nav>
+        </section>
+
+        <div class="jumbotron">
+            
+            <mat-horizontal-stepper linear>
+
+              <mat-step label="Data entery sec 1">
+              <p>Data entery sec 1</p>
+           
+              <form class="example-form" [formGroup]="EmpForm" (ngSubmit)="onSubmit(EmpForm)" novalidate>
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Employee" formControlName="empid">
+                  </mat-form-field>
+                  <div class="alert alert-danger" [hidden]="EmpForm.controls.empid.valid">EMP ID is required</div>
+                  <!--[formControl]="salutationControl"-->
+                  <table class="example-full-width" cellspacing="0"><tr>
+                    <td><mat-form-field>
+                        <mat-label>Salutation</mat-label>
+                        <mat-select formControlName="salutation" required>
+                          <mat-option >--</mat-option>
+                          <mat-option *ngFor="let sal of salutation" [value]="sal">
+                            {{sal}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="salutationControl.hasError('required')">Please choose an Salutation</mat-error>
+                      </mat-form-field></td>
+                    <td><mat-form-field class="example-full-width">
+                      <input matInput placeholder="First name" formControlName="fname" required>
+                    </mat-form-field></td>
+                    <td><mat-form-field class="example-full-width">
+                        <input matInput placeholder="Middle name" formControlName="mname" required>
+                      </mat-form-field></td>
+                    <td><mat-form-field class="example-full-width">
+                      <input matInput placeholder="Last Name" formControlName="lname" required>
+                    </mat-form-field></td>
+                  </tr>
+                 
+                  
+                  <tr>
+                      <td colspan="2"><mat-form-field class="example-full-width">
+                         <textarea matInput formControlName="caddress" placeholder="Address"></textarea>
+                       </mat-form-field></td>
+                       <td><mat-form-field class="example-full-width">
+                        <input matInput #postalCode maxlength="6" placeholder="Postal Code" value="xxxxxx">
+                        <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
+                      </mat-form-field></td>
+                      </tr>
+                      <tr>
+                      <td colspan="2"><mat-form-field class="example-full-width">
+                        <textarea matInput formControlName="paddress" placeholder="Permanent Address"></textarea>
+                      </mat-form-field></td>
+                      <td><mat-form-field class="example-full-width">
+                        <input matInput #postalCode maxlength="6" placeholder="Postal Code" value="xxxxxx">
+                        <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
+                      </mat-form-field></td>
+                    </tr>
+                    
+                    
+                    <tr>
+
+                            <td><mat-label>Matrital Status: </mat-label>
+                              <mat-radio-group formControlName="mstatus">
+                                <td><mat-radio-button value="Single" color="primary" (click)="Single()">Single</mat-radio-button></td>
+                                  <td><mat-radio-button value="Married" color="accent" (click)="Married()">Married</mat-radio-button></td>
+                                  </mat-radio-group>
+
+
+                      <td><mat-form-field class="example-full-width">
+                        <input matInput id="new" type="number" formControlName="nchild" placeholder="No. of children" >
+                      </mat-form-field></td>
+                      <td><mat-form-field class="example-full-width">
+                        <input matInput formControlName="religion" placeholder="Religion" required>
+                      </mat-form-field></td>
+                      
+                    </tr>
+                      
+                    
+                    <tr>
+                      <td><mat-label>Gender: </mat-label>
+                        <mat-radio-group formControlName="gender">
+                          <td><mat-radio-button value="Male" color="primary">Male</mat-radio-button></td>
+                            <td><mat-radio-button value="Female" color="accent">Female</mat-radio-button></td>
+                            </mat-radio-group>
+                          <td><mat-form-field class="example-full-width">
+                            <input formControlName="caste" matInput placeholder="Caste" required>
+                          </mat-form-field></td>
+                          <td><mat-form-field class="example-full-width">
+                            <input formControlName="dob" type="date" matInput placeholder="From" >
+                          </mat-form-field></td>
+                        </tr>
+                  
+                  <tr>
+                   <td><mat-label>Adhar card</mat-label></td>
+                    <td><mat-form-field class="example-full-width">
+                      <input formControlName="aadhar"  matInput #postalCode maxlength="14" placeholder="Adhar Number" value="xxxx-xxxx-xxxx">
+                      <mat-hint align="end">{{postalCode.value.length}} / 12</mat-hint>
+                    </mat-form-field></td>
+                    <td><mat-label>Pan card</mat-label></td>
+                    <td><mat-form-field class="example-full-width">
+                      <input matInput formControlName="pan"  #postalCode maxlength="14" placeholder="Pan Number" value="xxxx-xxxx-xxxx">
+                      <mat-hint align="end">{{postalCode.value.length}} / 12</mat-hint>
+                    </mat-form-field></td>
+                    
+                  </tr>
+
+                  <tr>
+                    
+                    <td>
+                    <mat-form-field class="example-full-width">
+                      <span matPrefix>+1 &nbsp;</span>
+                      <input type="tel" maxlength="10" formControlName="phone"  matInput placeholder="Telephone">
+                      <mat-icon matSuffix>mode_edit</mat-icon>
+                    </mat-form-field>
+                  </td>
+                      <td><mat-form-field class="email" >
+                          <input formControlName="pemail" matInput placeholder="Personal Emil-Id" required>
+                        </mat-form-field></td>
+      
+                      <td> <mat-form-field class="email" >
+                            <input formControlName="oemail" matInput placeholder="Official Emil-Id" required>
+                          </mat-form-field></td>
+                          </tr>
+                          </table>
+    
+                          <table align="center">
+                            <td><button mat-raised-button matStepperSubmit color="accent" [disabled]="EmpForm.invalid" >Submit</button></td>
+                          
+                          </table>
+
+                 </form>
+                  
+            </mat-step>
+            
+    
+
+            </mat-horizontal-stepper>
+  </div>
+      <!----
+      <button color="primary" mat-raised-button>hi</button>
+      
+      <button color="primary" mat-button>hi</button>
+      
+      <div>
+        <mat-icon>grade</mat-icon>
+        <mat-icon color="primary">
+            grade
+          </mat-icon>
+      </div>
+      
+      <mat-radio-group>
+      <mat-radio-button value="Male" color="primary">Male</mat-radio-button>
+      <mat-radio-button value="Female" color="accent">Female</mat-radio-button>
+      </mat-radio-group>
+    
+    -->
+  

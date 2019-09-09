@@ -1,0 +1,150 @@
+<mat-sidenav-container>
+    <mat-sidenav mode="over" [(opened)]="opened"><mat-icon>home</mat-icon>PICT MIS SYSTEM
+        <mat-icon mat-button (click)="opened=!opened" aria-hidden="false" aria-label="Example home icon">close</mat-icon>
+        <mat-list role="list">
+            <mat-list-item role="listitem"><button color="primary" routerLink="/staff-form" mat-raised-button>Emplyee Form</button></mat-list-item>
+            <mat-list-item role="listitem"><button color="primary" routerLink="/report" mat-raised-button>Report</button></mat-list-item>
+            <mat-list-item role="listitem"><button color="primary" routerLink="/salary" mat-raised-button>salary</button></mat-list-item>
+            <mat-list-item role="listitem"><button color="primary" routerLink="/experience" mat-raised-button>Experience</button></mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+       
+        
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="navbar-nav">
+        <button color="accent" mat-button (click)="opened=!opened"><mat-icon>menu</mat-icon></button>
+        <a class="nav-item nav-link" routerLink="/staff-home">Home</a>
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    </div>
+  </nav>
+  <div class="jumbotron">
+<mat-card>
+    <h3>Date:4/4/2019</h3>
+    <br>
+    <br>
+<section>
+    <h1>Experience CERTIFICATE</h1>
+    </section>
+    <br>
+    <br>
+    <section >
+        <h5>
+        This is to certify that {{name}}<mat-form-field class="example-full-width">
+                <input matInput value="Name of Employee" disabled>
+              </mat-form-field> is working in this institute as detailed below :-
+        </h5>
+    </section>
+    <section>
+         
+                <head> 
+                   
+                    <style> 
+                        table, th, td { 
+                            border: 1px solid black; 
+                            border-collapse: collapse; 
+                            padding: 6px; 
+                        } 
+                        body{
+                            background: none;
+                            color: black;
+                        }
+                    </style> 
+                </head> 
+                
+                <body style = "text-align:center"> 
+                   
+                    <br>
+                    <table> 
+                    <tr> 
+                        <th>Name</th> 
+                        <th>Designation</th>
+                        <th>Period</th>
+                        <th>Department</th>
+                        </tr> 
+                    <tr> 
+                        <td rowspan="5"><input matInput value="Name" disabled></td> 
+                        <td>
+                                <input matInput value="Professor" disabled>
+                        </td>
+                        <td> From <mat-form-field class="example-full-width">
+                                <input matInput value="4/4/2019" disabled>
+                              </mat-form-field>To  <mat-form-field class="example-full-width">
+                                    <input matInput value="4/4/2019" disabled>
+                                  </mat-form-field></td>
+                        <td><input matInput value="I.T" disabled></td> 
+                    </tr> 
+                    <tr> 
+                        <td><input matInput value="Associate Professor" disabled></td>
+                        <td>From <mat-form-field class="example-full-width">
+                                <input matInput value="4/4/2019" disabled>
+                              </mat-form-field>To <mat-form-field class="example-full-width">
+                                    <input matInput value="4/4/2019" disabled>
+                                  </mat-form-field></td>
+                        <td><input matInput value="I.T" disabled></td> 
+                    </tr> 
+                    <tr>
+                        <td><input matInput value="Associate Professor" disabled></td>
+                        <td>From <mat-form-field class="example-full-width">
+                                <input matInput value="4/4/2019" disabled>
+                              </mat-form-field>To <mat-form-field class="example-full-width">
+                                    <input matInput value="4/4/2019" disabled>
+                                  </mat-form-field></td>
+                        <td><input matInput value="I.T" disabled></td> 
+                    </tr> 
+                    <tr> 
+                        <td><input matInput value="Associate Professor" disabled></td>
+                        <td>From <mat-form-field class="example-full-width">
+                                <input matInput value="4/4/2019" disabled>
+                              </mat-form-field> To <mat-form-field class="example-full-width">
+                                    <input matInput value="4/4/2019" disabled>
+                                  </mat-form-field></td>
+                        <td><input matInput value="Computer" disabled></td> 
+                    </tr>  
+                    <tr>
+                        <td><input matInput value="Lecturer" disabled></td>
+                        <td>From <mat-form-field class="example-full-width">
+                                <input matInput value="4/4/2019" disabled>
+                              </mat-form-field> To <mat-form-field class="example-full-width">
+                                    <input matInput value="4/4/2019" disabled>
+                                  </mat-form-field></td>
+                        <td><input matInput value="Computer" disabled></td> 
+                    </tr> 
+                  
+                    <!-- The last row 
+                    <tr> 
+                        // This td will span two columns, that is 
+                          //  a single column will take up the space of 2 
+                        <td colspan="2">Sum: $18</td> 
+                    </tr> -->
+                    </table>
+                    <br>
+                    <br>
+                    <p>
+                        This certificate is issued on request of <mat-form-field class="example-full-width">
+                                <input matInput value="Name of Employee" disabled>
+                              </mat-form-field> without any financial obligation /liability on the part of institution ; netither this certificate should be treated as any commitment from the institution in whatsover matter.
+                    </p> 
+                  
+                </body> 
+           
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id = "leftbox">
+        <label><b>Asst. Registrar</b></label>
+    </div>
+    <div id = "rightbox" align="right">
+        <label><b>Principal</b></label>
+    </div>
+</mat-card>
+<!--
+<div align="right">
+    <button mat-raised-button>Download as PDF</button>
+</div>
+-->
+</div>
+</mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,245 @@
+<mat-sidenav-container>
+    <mat-sidenav mode="over" [(opened)]="opened"><mat-icon>home</mat-icon>PICT MIS SYSTEM
+        <mat-icon mat-button (click)="opened=!opened" aria-hidden="false" aria-label="Example home icon">close</mat-icon>
+        <mat-list role="list">
+            <mat-list-item role="listitem"><button color="primary" routerLink="/staff-form" mat-raised-button>Emplyee Form</button></mat-list-item>
+            <mat-list-item role="listitem"><button color="primary" routerLink="/report" mat-raised-button>Report</button></mat-list-item>
+            <mat-list-item role="listitem"><button color="primary" routerLink="/salary" mat-raised-button>salary</button></mat-list-item>
+            <mat-list-item role="listitem"><button color="primary" routerLink="/experience" mat-raised-button>Experience</button></mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+       
+        
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="navbar-nav">
+        <button color="accent" mat-button (click)="opened=!opened"><mat-icon>menu</mat-icon></button>
+        <a class="nav-item nav-link" routerLink="/staff-home">Home</a>
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    </div>
+  </nav>
+  <div class="jumbotron">
+<mat-card *ngFor="let employee of employees" id="pdf">
+    <h3 >Date:{{employee.report}}</h3>
+    <br>
+    <br>
+<section>
+    <h1>SALARY CERTIFICATE</h1>
+    </section>
+    <br>
+    <br>
+    <section >
+        <h5 *ngFor="let employee of employees">
+        This is to certify that {{employee.name}} is working in this institute as
+                
+        in {{employee.dept}} &nbsp; . His/Her salary for the month&nbsp;&nbsp;{{employee.fromdate}}&nbsp;&nbsp; To &nbsp;&nbsp;{{employee.todate}} &nbsp;&nbsp;is as below:-
+        </h5>
+    </section>
+    <section>
+         
+                <head> 
+                    
+                    <style> 
+                        table, th, td { 
+                            border: 1px solid black; 
+                            border-collapse: collapse; 
+                            padding: 6px; 
+                        } 
+                        body{
+                            background: none;
+                            color: black;
+                        }
+                    </style> 
+                </head> 
+                
+                <body style = "text-align:center"> 
+                   
+                    <br>
+                    <br>
+                    <table> 
+                    <tr> 
+                        <th>Earnings</th> 
+                        <th>{{employee.m1}}</th>
+                        <th>{{employee.m2}}</th>
+                        <th>{{employee.m3}}</th>
+                        <th>Deductions</th> 
+                        <th>{{employee.x1}}</th>
+                        <th>{{employee.x2}}</th>
+                        <th>{{employee.x3}}</th>
+                    </tr> 
+                    <tr> 
+                        <td>BASIC PAY/PAY</td> 
+                        <td> 
+                                {{employee.pay1}}
+                              </td>
+                        <td> 
+                            {{employee.pay2}}
+                             </td>
+                        <td>     {{employee.pay3}}
+                              </td>
+                        <td>P.F.</td>
+                        <td>     {{employee.pf1}}
+                            </td>
+                        <td>     {{employee.pf2}}                            </td>
+                        <td>     {{employee.pf3}}                            </td> 
+                    </tr> 
+                    <tr> 
+                        <td>D.P/AGP</td> 
+                        <td> 
+                                 {{employee.dp1}}
+                              </td>
+                        <td> 
+                                 {{employee.dp2}}
+                             </td>
+                        <td>     {{employee.dp3}}
+                              </td>
+                        <td>PROFESSIONAL TAX</td>
+                        <td> 
+                                 {{employee.pt1}}
+                              </td>
+                        <td> 
+                                 {{employee.pt2}}
+                             </td>
+                        <td>     {{employee.pt3}}
+                              </td>
+                    </tr> 
+                    <tr> 
+                        <td>D.A</td> 
+                        <td> 
+                            {{employee.da1}}
+                              </td>
+                        <td> 
+                            {{employee.da2}}
+                             </td>
+                        <td>     {{employee.da3}}
+                              </td>
+                        <td>INCOME TAX</td>
+                        <td> 
+                            {{employee.it1}}
+                              </td>
+                        <td> 
+                            {{employee.it2}}
+                             </td>
+                        <td>    {{employee.it3}}
+                              </td>
+                    </tr> 
+                    <tr> 
+                        <td>H.R.A</td> 
+                        <td> 
+                            {{employee.hra1}}
+                              </td>
+                        <td> 
+                            {{employee.hra2}}
+                             </td>
+                        <td>     {{employee.hra3}}
+                              </td>
+                        <td>REVENUE STAMP</td>
+                        <td> 
+                            {{employee.r1}}
+                              </td>
+                        <td> 
+                            {{employee.r2}}
+                             </td>
+                        <td>    {{employee.r3}}
+                              </td>
+                    </tr> 
+                    <tr> 
+                        <td>C.C.A</td> 
+                        <td> 
+                            {{employee.cca1}}
+                              </td>
+                        <td> 
+                            {{employee.cca2}}
+                             </td>
+                        <td>    {{employee.cca3}}
+                              </td>
+                        <td>OTHER DEDUCTIONS</td>
+                        <td> 
+                            {{employee.o1}}
+                              </td>
+                        <td> 
+                            {{employee.o2}}
+                             </td>
+                        <td>     {{employee.o3}}
+                              </td>
+                    </tr> 
+                    <tr> 
+                        <td>T.A</td> 
+                        <td> 
+                            {{employee.ta1}}
+                              </td>
+                        <td> 
+                            {{employee.ta2}}
+                             </td>
+                        <td>     {{employee.ta3}}
+                              </td>
+                        <td>TOTAL DEDUCTIONS</td>
+                        <td> 
+                            {{employee.t1}}
+                              </td>
+                        <td> 
+                            {{employee.t2}}
+                             </td>
+                        <td>    {{employee.t3}}
+                              </td>
+                    </tr> 
+                    <tr> 
+                        <td><b>GROSS SALARY(Rs.)</b></td> 
+                        <td> 
+                            {{employee.g1}}
+                              </td>
+                        <td> 
+                            {{employee.g2}}
+                             </td>
+                        <td>     {{employee.g3}}
+                              </td>
+                        <td><b>NET SALARY(Rs.)</b></td>
+                        <td> 
+                            {{employee.n1}}
+                              </td>
+                        <td> 
+                            {{employee.n2}}
+                             </td>
+                        <td>     {{employee.n3}}
+                              </td>
+                    </tr> 
+                    
+                    <!-- The last row 
+                    <tr> 
+                        // This td will span two columns, that is 
+                          //  a single column will take up the space of 2 
+                        <td colspan="2">Sum: $18</td> 
+                    </tr> -->
+                    </table>
+                    <br>
+                    <br>
+                    <p >
+                        This certificate is issued on request of 
+                        {{employee.name}} &nbsp;without any financial obligation /liability on the part of institution ; netither this certificate should be treated as any commitment from the institution in whatsover matter.
+                    </p> 
+                  
+                </body> 
+           
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div align="right">
+        <label>Principal</label>
+    </div>
+
+
+
+</mat-card>
+
+<input type="button" value="Download pdf" (click)="convert()"/>
+
+<!--
+<div align="right">
+    <button mat-raised-button>Download as PDF</button>
+</div>
+-->
+</div>
+</mat-sidenav-content>
+</mat-sidenav-container>
