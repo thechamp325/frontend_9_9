@@ -1,169 +1,64 @@
 <mat-sidenav-container>
-    <mat-sidenav mode="over" [(opened)]="opened"><mat-icon>home</mat-icon>PICT MIS SYSTEM
-        <mat-icon mat-button (click)="opened=!opened" aria-hidden="false" aria-label="Example home icon">close</mat-icon>
-        <mat-list role="list">
-            <mat-list-item role="listitem"><button color="primary" routerLink="/staff-form" mat-raised-button>Emplyee Form</button></mat-list-item>
-            <mat-list-item role="listitem"><button color="primary" routerLink="/report" mat-raised-button>Report</button></mat-list-item>
-          </mat-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-       
-        
+  <mat-sidenav mode="over" [(opened)]="opened"><mat-icon>home</mat-icon>PICT MIS SYSTEM
+      <mat-icon mat-button (click)="opened=!opened" aria-hidden="false" aria-label="Example home icon">close</mat-icon>
+      <mat-list role="list">
+          <mat-list-item role="listitem"><button color="primary" routerLink="/staff-form" mat-raised-button>Emplyee Form</button></mat-list-item>
+          <mat-list-item role="listitem"><button color="primary" routerLink="/report" mat-raised-button>Report</button></mat-list-item>
+        </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+     
+
 <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <div class="navbar-nav">
-        <button color="accent" mat-button (click)="opened=!opened"><mat-icon>menu</mat-icon></button>
-        <a class="nav-item nav-link" routerLink="/staff-home">Home</a>
-        <a class="nav-item nav-link" (click)="logout()">Logout</a>
-    </div>
-  </nav>
-<div class="jumbotron">
-    <form #formcontrol class="example-form" [formGroup]="form" novalidate>
-<mat-accordion class="example-headers-align">
-    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Salary Certificate
-          </mat-panel-title>
-          <mat-panel-description>
-            Inform the date you wish to get Report
-            <mat-icon>date_range</mat-icon>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-
-        
-    
-<tr>
-        <td><mat-form-field class="example-full-width">
-          <input formControlName="from_month" type="date" matInput placeholder="Passing Month&year" >
-        </mat-form-field></td>
-
-        
-        <td><mat-form-field class="example-full-width">
-          <input formControlName="to_month" type="date" matInput placeholder="Passing Month&year" >
-        </mat-form-field></td>
-
-        </tr>
-    
-        <mat-action-row>
-            <button mat-button color="primary" (click)="nextStep()">Next</button>
-          <button mat-button color="warn" (click)="Submit()" >Request</button>
-        </mat-action-row>
-      </mat-expansion-panel>
-
-      <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
-        
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Experience Certificate
-            </mat-panel-title>
-            <mat-panel-description>
-                Inform the date you wish to get Report
-              <mat-icon>date_range</mat-icon>
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-      
-          <mat-form-field>
-            <input matInput placeholder="From" [matDatepicker]="From2" (focus)="From2.open()" readonly>
-          </mat-form-field>
-          <mat-datepicker #From2></mat-datepicker>
-
-          <mat-form-field>
-          <input matInput placeholder="To" [matDatepicker]="To2" (focus)="To2.open()" readonly>
-        </mat-form-field>
-        <mat-datepicker #To2></mat-datepicker>
-      
-          <mat-action-row>
-              <button mat-button color="primary" (click)="nextStep()">Next</button>
-              <button mat-button color="warn" routerLink="/experience">Request</button>
-          </mat-action-row>
-        </mat-expansion-panel>
-
-  
-    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-            EXPERIENCE & RELIEVING CERTIFICATE
-        </mat-panel-title>
-        <mat-panel-description>
-            Inform the date you wish to get Report
-          <mat-icon>date_range</mat-icon>
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-  
-      <mat-form-field>
-          <input matInput placeholder="From" [matDatepicker]="From3" (focus)="From3.open()" readonly>
-        </mat-form-field>
-        <mat-datepicker #From3></mat-datepicker>
-
-        <mat-form-field>
-        <input matInput placeholder="To" [matDatepicker]="To3" (focus)="To3.open()" readonly>
-      </mat-form-field>
-      <mat-datepicker #To3></mat-datepicker>
-  
-      <mat-action-row>
-        <button mat-button color="primary" (click)="prevStep()">Previous</button>
-        <button mat-button color="warn"  routerLink="/expadrel">Request</button>
-      </mat-action-row>
-    </mat-expansion-panel>
-
-    <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-              NO OBJECTION CERTIFICATE
-          </mat-panel-title>
-          <mat-panel-description>
-              Inform the date you wish to get Report
-            <mat-icon>date_range</mat-icon>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-    
-        <mat-form-field>
-            <input matInput placeholder="From" [matDatepicker]="From4" (focus)="From4.open()" readonly>
-          </mat-form-field>
-          <mat-datepicker #From3></mat-datepicker>
-  
-          <mat-form-field>
-          <input matInput placeholder="To" [matDatepicker]="To4" (focus)="To4.open()" readonly>
-        </mat-form-field>
-        <mat-datepicker #To3></mat-datepicker>
-    
-        <mat-action-row>
-          <button mat-button color="primary" (click)="prevStep()">Previous</button>
-          <button mat-button color="warn" routerLink="/noobjection">Request</button>
-        </mat-action-row>
-      </mat-expansion-panel>
-
-      <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-                LETTER OF CONFIRMATION OF SERVICES
-            </mat-panel-title>
-            <mat-panel-description>
-                Inform the date you wish to get Report
-              <mat-icon>date_range</mat-icon>
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-      
-          <mat-form-field>
-              <input matInput placeholder="From" [matDatepicker]="From4" (focus)="From4.open()" readonly>
-            </mat-form-field>
-            <mat-datepicker #From3></mat-datepicker>
-    
-            <mat-form-field>
-            <input matInput placeholder="To" [matDatepicker]="To4" (focus)="To4.open()" readonly>
-          </mat-form-field>
-          <mat-datepicker #To3></mat-datepicker>
-      
-          <mat-action-row>
-            <button mat-button color="primary" (click)="prevStep()">Previous</button>
-            <button mat-button color="warn" routerLink="/confirmationletter">Request</button>
-          </mat-action-row>
-        </mat-expansion-panel>
-  
-  </mat-accordion>
-  </form>
+  <div class="navbar-nav">
+      <button color="accent" mat-button (click)="opened=!opened"><mat-icon>menu</mat-icon></button>
+      <a class="nav-item nav-link" routerLink="/home">Home</a>
+      <a class="nav-item nav-link" (click)="logout()">Logout</a>
   </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+<!--temporary table-->
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+    <!-- Position Column -->
+    <ng-container matColumnDef="Employee">
+      <th mat-header-cell *matHeaderCellDef> Employee </th>
+      <td mat-cell *matCellDef="let element"> {{element.Employee}} </td>
+    </ng-container>
   
-  </mat-sidenav-content>
-  </mat-sidenav-container>
- 
+    <!-- Name Column -->
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Designation">
+      <th mat-header-cell *matHeaderCellDef> Designation </th>
+      <td mat-cell *matCellDef="let element"> {{element.Designation}} </td>
+    </ng-container>
+
+       <!-- Type Column -->
+       <ng-container matColumnDef="Department">
+        <th mat-header-cell *matHeaderCellDef> Department </th>
+        <td mat-cell *matCellDef="let element"> {{element.Department}} </td>
+      </ng-container>
+
+
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table> 
+
+
+</mat-sidenav-content>
+</mat-sidenav-container>
